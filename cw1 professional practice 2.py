@@ -12,9 +12,12 @@ def typing_screen():
 def random_word(): #output as string
     pass
     
-def input_check(word): #output boolean
+def input_check(wordToCheck,correctWord): #output boolean
     pass
-    
+
+def update_points(currentScore): #output intiger
+    pass
+
 def main():
 
     main()
