@@ -22,8 +22,7 @@ class SentenceLoader:
         self.used.add(sentence)
         return sentence
 
-word_bank = load_bank("wordbank.json")
-manager = SentenceLoader(word_bank, "Easy")
-print("Testing random sentence output:\n")
-for i in range(1):
-    print(manager.get_sentence())
+def sentence():
+    word_bank = load_bank("wordbank.json")
+    manager = SentenceLoader(word_bank, "Easy")
+    return manager.get_sentence()

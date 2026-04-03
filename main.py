@@ -1,7 +1,7 @@
 #important: pygame only runs on python versions 3.13 and earlier, pygame may not be installed and can be nstalled with pip commands
 import pygame
 import os
-
+from typetest import sentence
 import random
 pygame.init()
 
@@ -50,12 +50,12 @@ class Button():
 #code for start screen
 def start_screen():
     #background, always draw first
-    background = pygame.image.load("cw1-professional-practice-2-main\graphics\cw1 background.png")
+    background = pygame.image.load("graphics/cw1 background.png")
     scrn.blit(background, (0, 0))
 
     #buttons
-    start = pygame.image.load("cw1-professional-practice-2-main\graphics\start-button-1.png")
-    start_b = pygame.image.load("cw1-professional-practice-2-main\graphics\start-button-2.png")
+    start = pygame.image.load("graphics/start-button-1.png")
+    start_b = pygame.image.load("graphics/start-button-2.png")
     start_button = Button(15,150,start,start_b)
     start_button.draw()
     if start_button.action==True:
@@ -77,13 +77,14 @@ def typing_screen(user_text,current_word,new_word_needed,health,game_timer):
 
     if new_word_needed:
        current_word = random_word()
+       new_word_needed = False
     
     #background, always draw first
-    background = pygame.image.load("cw1-professional-practice-2-main\graphics\cw1 background.png")
+    background = pygame.image.load("graphics/cw1 background.png")
     scrn.blit(background, (0, 0))
     
     #creating monster image and health bar and timer
-    monster = pygame.image.load("cw1-professional-practice-2-main/graphics/pixil-frame-0.png")
+    monster = pygame.image.load("graphics/pixil-frame-0.png")
     health_rect = pygame.Rect(50,20,500,60)
     health_rect.w = health
     timer_rect = pygame.Rect(50,10,10,10)
@@ -117,7 +118,7 @@ def typing_screen(user_text,current_word,new_word_needed,health,game_timer):
                     new_word_needed=True
                     health-=len(user_text)
                     user_text=''
-                    monster=pygame.image.load("cw1-professional-practice-2-main/graphics/pixil-frame-1.png")
+                    monster=pygame.image.load("graphics/pixil-frame-1.png")
                 else:
                    user_text=''
             else:
@@ -128,7 +129,7 @@ def typing_screen(user_text,current_word,new_word_needed,health,game_timer):
 
     #win/loss check
     if health <=0:
-       monster=pygame.image.load("cw1-professional-practice-2-main\graphics\pixil-frame-2.png")
+       monster=pygame.image.load("graphics/pixil-frame-2.png")
        scrn.blit(monster,(0,-70))
        win()
 
@@ -143,7 +144,7 @@ def typing_screen(user_text,current_word,new_word_needed,health,game_timer):
 
 #win screen
 def win():
-   winner = pygame.image.load("cw1-professional-practice-2-main\graphics\winner.png")
+   winner = pygame.image.load("graphics/winner.png")
    scrn.blit(winner,(50,50))
    while True:
     pygame.display.update()
@@ -157,7 +158,7 @@ def win():
 
 #lose screen
 def lose():
-   loser = pygame.image.load("cw1-professional-practice-2-main\graphics\loser.png")
+   loser = pygame.image.load("graphics/loser.png")
    scrn.blit(loser,(50,50))
    while True:
     pygame.display.update()
@@ -173,7 +174,7 @@ def lose():
 
 
 def random_word(): #output as string
-    return 'apple' #for testing purposes
+    return (sentence()) #for testing purposes
     
 def input_check(wordToCheck,correctWord): #output boolean _
 
